@@ -1,4 +1,4 @@
-The code above was ran on a Raspberry Nano.
+The code above was compiled on a Raspberry Nano.
 
 It does the following:
 
