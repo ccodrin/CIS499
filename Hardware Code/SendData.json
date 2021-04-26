@@ -1,0 +1,11 @@
+{
+    "VehicleType": "Sedan",
+    "LicensePlate": "PASTGAS",
+    "LicensePlateConf": 0.818,
+    "Make": "Tesla",
+    "Model": "Model 3",
+    "Color": "blue",
+    "State": "GA",
+    "Status": "out",
+    "TimeStamp": "1619460450193.858"
+}
