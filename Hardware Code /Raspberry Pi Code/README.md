@@ -21,6 +21,7 @@ The flow is as follows:
 - **SendData.json** is then sent to the database through the use of **send.py**
 
 
+
 Another functionality added is the ability to change the state of the car (in/out) and that is done as follows:
 
 - Stop running the **BluetoothPiCamera.py** code
