@@ -1,7 +1,7 @@
 #include <SoftwareSerial.h>
 //
-#define echoPin 6 // attach pin D5 Arduino to pin Echo of HC-SR04
-#define trigPin 5 //attach pin D4 Arduino to pin Trig of HC-SR04
+#define echoPin 6 // attach pin D6 Arduino to pin Echo of HC-SR04
+#define trigPin 5 //attach pin D6 Arduino to pin Trig of HC-SR04
 //
 int RX_pin=11;
 int TX_pin=12;
@@ -12,8 +12,8 @@ String Arduino_data;
 //
 long duration; // variable for the duration of sound wave travel
 int distance; // variable for the distance measurement
-int ledPin = 2; 
-int Power = 4;     
+int ledPin = 2; // the pin in charge with turning on/off the LED
+int Power = 4; //  the pin in charge of powering the ultrasound   
 //
 
 void setup(){
@@ -51,7 +51,7 @@ void loop(){
   Serial.println(" cm");
 
   if ( distance<10){
-    //Arduino_data=Serial.readString();
+    //Arduino_data=Serial.readString(); //Code to receive data
     
         digitalWrite(ledPin,HIGH); 
         BTserial.println("1"); 
@@ -64,7 +64,7 @@ void loop(){
   }
 
 
-
+//Code to receive data
   
 //  if (BTserial.available()){
 //    BT_data= BTserial.readString();
