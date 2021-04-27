@@ -1,0 +1,7 @@
+## Firebase
+REACT_APP_FIREBASE_KEY="AIzaSyA5TWmCW8Gp8Su3quZw3mQ0wH-87mnfEy8"
+REACT_APP_FIREBASE_DOMAIN="lander-parksmart.firebaseapp.com"
+REACT_APP_FIREBASE_DATABASE="https://lander-parksmart-default-rtdb.firebaseio.com"
+REACT_APP_FIREBASE_PROJECT_ID= "lander-parksmart"
+REACT_APP_FIREBASE_STORAGE_BUCKET="lander-parksmart.appspot.com"
+REACT_APP_FIREBASE_SENDER_ID=477855270508
