@@ -55,8 +55,8 @@ try:
             status=myInfo['camera_id'];
             time=myInfo['timestamp'];
             
-         # You do not need the lines in the box if you like the format you get from 
-         # the SDK as a string
+         # You do not need the lines in the box if you like the format you get from the SDK
+         # as a string. The lines below gives you the time in miliseconds to date.
             ################################################################
             time = datetime.datetime.strptime(time, '%Y-%m-%d %H:%M:%S.%f')#
             hours = 4                                                      #
