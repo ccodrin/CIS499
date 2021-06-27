@@ -6,21 +6,22 @@ def getJSON(filePathAndName):
     with open(filePathAndName, 'r') as fp:
         return json.load(fp)
 
-Vtype=""
-myInfo=""
-lp=""
-lpC=""
-state=""
-make=""
-model=""
-color=""
-status=""
-time=""
+Vtype="" # Vehicle Type  
+myInfo="" # The JSON Object
+lp="" # License Plate
+lpC="" # License Plate Confidence 
+state="" # ex. MA, SC, AZ
+make="" # Car Make 
+model="" # Car Model
+color="" # Car Color
+status="" # In or Out
+time="" # Time Stamp
 
+#If the JSON file is not empty nor saying error than it is good to be Parsed
 try:
     empty=os.stat("/home/pi/Desktop/LPdata.json").st_size == 0
 
-    if not (empty):
+    if not (empty): 
         myInfo=getJSON("/home/pi/Desktop/LPdata.json")
         if 'error' not in myInfo:
             lp = myInfo['results'][0]['plate'].upper();
@@ -28,7 +29,9 @@ try:
             Vtype = myInfo['results'][0]['vehicle']['type'];
             lpC=myInfo['results'][0]['candidates'][0]['score'];
 
-            presence = myInfo['results'][0]['model_make']
+        # The presence related items below makes sure that the make, model, and the color 
+        # were picked up from the right place.  
+        presence = myInfo['results'][0]['model_make']
             if isinstance(presence, list):  
                 make=presence[0]['make'];
 
@@ -49,20 +52,23 @@ try:
             else:
                 color=presence['color'];
                 
-
             status=myInfo['camera_id'];
             time=myInfo['timestamp'];
-            time = datetime.datetime.strptime(time, '%Y-%m-%d %H:%M:%S.%f')
-            hours = 4
-            hours_subtracted = datetime.timedelta(hours = hours)
-            accurateTime = time - hours_subtracted
-            epoch = datetime.datetime.utcfromtimestamp(0)
-
-            def unix_time_millis(dt):
-                return (dt - epoch).total_seconds() * 1000.0
             
-            TimeMili=str(unix_time_millis(accurateTime))
-            
+         # You do not need the lines in the box if you like the format you get from 
+         # the SDK as a string
+            ################################################################
+            time = datetime.datetime.strptime(time, '%Y-%m-%d %H:%M:%S.%f')#
+            hours = 4                                                      #
+            hours_subtracted = datetime.timedelta(hours = hours)           #
+            accurateTime = time - hours_subtracted                         #
+            epoch = datetime.datetime.utcfromtimestamp(0)                  #
+                                                                           #
+            def unix_time_millis(dt):                                      #
+                return (dt - epoch).total_seconds() * 1000.0               #
+                                                                           #
+            TimeMili=str(unix_time_millis(accurateTime))                   #
+            ################################################################
            
                # Data to be written 
             parsedData ={ 
@@ -79,12 +85,13 @@ try:
            
                # Serializing json  
             json_object = json.dumps(parsedData, indent = 4) 
-            with open("/home/pi/Desktop/SendData.json", "w") as outfile: 
+            with open("/home/pi/Desktop/SendData.json", "w") as outfile: #Write the parsed json in SendData.json on Desktop 
                 outfile.write(json_object)
             print(json_object);    
 
     else:
         print("File empty");
+#If the JSON file does not respect the specific format than inform me that is not a car
 except:
     print("Not a car");
 
