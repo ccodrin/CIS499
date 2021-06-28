@@ -6,6 +6,7 @@ GPIO.setwarnings(False)
 GPIO.setup(22, GPIO.IN, pull_up_down=GPIO.PUD_UP)#Button to GPIO23
 GPIO.setup(17, GPIO.OUT)  #LED Green to GPIO17
 GPIO.setup(27, GPIO.OUT)#LED Red to GPIO27
+#Turn both lights off
 GPIO.output(27, False)
 GPIO.output(17, False)
 #num is a counter
