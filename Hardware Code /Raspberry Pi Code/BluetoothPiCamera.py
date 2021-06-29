@@ -29,7 +29,7 @@ try:
           if val=="1": #if the value gotten from the Arduino is 1
               camera.start_preview()
               time.sleep(2)
-              camera.capture("test.jpg") #take a picture, title it test.jpg and save it in the same directory as this program.
+              camera.capture("CarPicture.jpg") #take a picture, title it CarPicture.jpg and save it in the same directory as this program.
               camera.stop_preview() 
             #the lines below help us know when a picture was taken (we will check through a shell script if the "state.txt" file has changed)
             #checking the test.jpg directly proved to be problematic
