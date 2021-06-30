@@ -1,5 +1,10 @@
 The code above was compiled on a Arduino Nano.
 
+The Code Logic is as follows:
+
+![](Arduino_CodeLogic.png)
+
+
 It does the following:
 
 -detects a difference in distance lower than 10mm(measured by the Sonar Sensor HC-SR04)
