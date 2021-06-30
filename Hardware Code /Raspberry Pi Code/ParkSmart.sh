@@ -1,13 +1,13 @@
 #!/bin/sh
 #Don't forget to:
 
-#Start License Plate Reader Server
+#Start License Plate Reader Server 
 #/home/pi/Desktop/StartAlprServer.py
 
-#Start Button.py
+#Start Button.py on its own terminal
 #python3 /home/pi/Desktop/Button.py
 
-#Start the bluetooth connection with the Pi camera
+#Start the bluetooth connection with the Pi camera on its own terminal 
 #python3 /home/pi/Desktop/BluetoothPiCamera.py
 
 while inotifywait -e modify /home/pi/Desktop/state.txt; do # when state.txt has been modified
@@ -30,7 +30,6 @@ else
  	 http://localhost:8080/v1/plate-reader/ > /home/pi/Desktop/LPdata.json #save the response from the SDK in LPdata.json 
 	
 fi
-
 
 python3 /home/pi/Desktop/Parse.py #Run Parse.py to get only the data you need
 python3 /home/pi/Desktop/Send.py # Run Send.Py to send the data you need to the database
