@@ -1,7 +1,8 @@
 The code above has been executed on the linux environment of a Raspberry Pi Model 3B 
 
 The Code Logic:
-(/RaspberryPiCodeLogic.png)
+![](RaspberryPiCodeLogic.png)
+
 
 
 The flow is as follows:
