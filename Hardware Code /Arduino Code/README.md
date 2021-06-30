@@ -1,4 +1,4 @@
-The code above was compiled on a Raspberry Nano.
+The code above was compiled on a Arduino Nano.
 
 It does the following:
 
