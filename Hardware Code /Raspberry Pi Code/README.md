@@ -1,5 +1,9 @@
 The code above has been executed on the linux environment of a Raspberry Pi Model 3B 
 
+The Code Logic:
+(/RaspberryPiCodeLogic.png)
+
+
 The flow is as follows:
 
 1. Run **StartAlprServer.sh** - turns on the https://platerecognizer.com/ sdk on our local environment. 
@@ -25,8 +29,6 @@ The flow is as follows:
 - The output is automatically processed by **Parse.py**, and saves the data of interest in **SendData.json**
 
 - **SendData.json** is then sent to the database through the use of **Send.py**
-
-
 
 
 
