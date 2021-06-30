@@ -3,8 +3,8 @@
 #define echoPin 6 // attach pin D6 Arduino to pin Echo of HC-SR04
 #define trigPin 5 //attach pin D6 Arduino to pin Trig of HC-SR04
 //
-int RX_pin=11;
-int TX_pin=12;
+int RX_pin=11; //define pin 11 as RX
+int TX_pin=12; //define pin 12 as TX
 
 SoftwareSerial BTserial(RX_pin,TX_pin);
 String BT_data;
@@ -18,7 +18,7 @@ int Power = 4; //  the pin in charge of powering the ultrasound
 
 void setup(){
   Serial.begin(9600);// Serial Communication is starting with 9600 of baudrate speed
-  BTserial.begin(9600);
+  BTserial.begin(9600);// Bluetooth Serial Communication is starting with 9600 of baudrate speed
 
 //
  pinMode(trigPin, OUTPUT); // Sets the trigPin as an OUTPUT
@@ -50,29 +50,14 @@ void loop(){
   Serial.print(distance);
   Serial.println(" cm");
 
-  if ( distance<10){
-    //Arduino_data=Serial.readString(); //Code to receive data
+  if ( distance<10){ //If Distance is less than 10 mm for testing purposes (When testing in real field increase to 100ish)
     
-        digitalWrite(ledPin,HIGH); 
-        BTserial.println("1"); 
-        Serial.println("1");
+        digitalWrite(ledPin,HIGH); //turn on LED
+        BTserial.println("1"); // write a 1 on the receiver's end (in our case in the Raspberry Pi)
+        Serial.println("1"); // write in the serial port a 1 
   }else{
-     digitalWrite(ledPin,LOW);
+     digitalWrite(ledPin,LOW); //turn of LED
   }
-  delay(650);
+  delay(650); //Wait 650ms  (Increase this to 2000ish when actually testing in real field, so it does not trigger multiple times  by the same car)
     
   }
-
-
-//Code to receive data
-  
-//  if (BTserial.available()){
-//    BT_data= BTserial.readString();
-//    Serial.println(BT_data);
-//  }
-  
-//  if (Serial.available()){
-//    Arduino_data=Serial.readString();
-//    BTserial.println(Arduino_data);
-//  }
-//}
