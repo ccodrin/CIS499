@@ -2,7 +2,7 @@
 #Don't forget to:
 
 #Start License Plate Reader Server 
-#/home/pi/Desktop/StartAlprServer.py
+#/home/pi/Desktop/StartAlprServer.sh
 
 #Start Button.py on its own terminal
 #python3 /home/pi/Desktop/Button.py
