@@ -19,7 +19,7 @@ if os.path.exists('/dev/rfcomm0') == False: #checks if the path exists (if you c
 bluetoothSerial = serial.Serial( "/dev/rfcomm0", baudrate=9600 ) #make sure is the same path as line 14. 
 
 n=True
-print("Waiting on data from Pi: ")
+print("Waiting on data from Arduino: ")
 try:
       while n:
 
